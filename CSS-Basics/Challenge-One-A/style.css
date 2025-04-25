@@ -1,0 +1,43 @@
+body {
+  background-color: #e8a07c;
+}
+
+#wrap {
+  border: 6px dotted black;
+  background-color: #f6f3d0;
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+hr {
+  border-top: 6px dotted black;
+}
+
+h1 {
+  font-family: "Georgia", serif;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 2.2em;
+  margin: 5px;
+}
+
+.intro {
+  padding: 0 10px;
+  font-size: 0.75em;
+  text-align: left;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.sonnet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.sonnet li::first-letter {
+  font-size: 25px;
+  font-weight: bold;
+}

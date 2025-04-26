@@ -214,6 +214,19 @@ section {
   animation: fadeInUp 1s ease 0.3s forwards;
   opacity: 0;
 }
+
+/* Page Header (for other pages) */
+.page-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("./images/timeline-hero.jpg") center/cover no-repeat;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--light);
+  margin-top: var(--navbar-height);
+}
 /* keyframes */
 @keyframes fadeInDown {
   from {
@@ -267,6 +280,7 @@ section {
 #profile-image-desktop {
   display: block;
 }
+
 #profile-image-mobile {
   display: none;
 }
@@ -479,17 +493,6 @@ blockquote::before {
 }
 
 /* Timeline Page Styles */
-.timeline-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("./images/timeline-hero.jpg") center/cover no-repeat;
-  height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--light);
-  margin-top: 60px;
-}
 
 .timeline-section {
   padding: var(--space-xxl) 0;
@@ -558,6 +561,112 @@ blockquote::before {
   margin-bottom: 0;
 }
 
+/* Records Section */
+.records {
+  background-color: var(--light-gray);
+  padding: var(--space-xxl) var(--space-xl);
+  border-radius: 8px;
+  margin-bottom: var(--space-xl);
+}
+
+.record-list {
+  list-style-position: inside;
+  padding-left: var(--space-md);
+}
+
+.record-list li {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.record-list li::before {
+  content: "🏆";
+  position: absolute;
+  left: -15px;
+}
+
+/* Gallery Page Styles */
+.gallery-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("./images/gallery-hero.jpeg") center/cover no-repeat;
+}
+.gallery-section {
+  padding: var(--space-xl) 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  transition: transform 0.5s ease;
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--light);
+  padding: var(--space-md);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-style: italic;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover figcaption {
+  transform: translateY(0);
+}
+
+/* Fan Testimonials */
+.fan-tribute {
+  padding: var(--space-xxl) 0;
+  text-align: center;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.testimonial {
+  text-align: left;
+  border-left: 3px solid var(--primary);
+  background-color: var(--light-gray);
+}
+
+.testimonial cite {
+  display: block;
+  margin-top: var(--space-md);
+  font-weight: 600;
+  font-style: normal;
+  color: var(--medium-gray);
+}
+
 /* Footer */
 footer {
   background-color: var(--secondary);
@@ -608,11 +717,32 @@ footer a:hover {
   h2 {
     font-size: 2rem;
   }
+
+  .timeline::after {
+    left: 40px;
+  }
+
+  .timeline-date {
+    left: 40px;
+    transform: translateX(0);
+    width: 100px;
+  }
+
+  .timeline-content {
+    width: calc(100% - 80px);
+    left: 80px !important;
+  }
+  .timeline-content h3 {
+    margin-top: var(--space-xl);
+  }
 }
 
 @media (max-width: 768px) {
   .navbar {
     padding: var(--space-md) 0;
+  }
+  .nav-links {
+    gap: var(--space-sm);
   }
 
   .nav-links li {
@@ -641,8 +771,21 @@ footer a:hover {
     height: 300px;
     display: none;
   }
+
   #profile-image-mobile {
     display: block;
+  }
+
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .stat {
+    margin-bottom: var(--space-lg);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -668,6 +811,17 @@ footer a:hover {
   }
 
   .clubs {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-preview img {
+    width: 100px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -70%);
+  }
+
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 }

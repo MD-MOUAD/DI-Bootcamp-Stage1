@@ -20,6 +20,9 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --space-xxl: 48px;
+
+  /* Navbar */
+  --navbar-height: 60px;
 }
 
 /* Base Styles */
@@ -69,6 +72,11 @@ h6 {
   margin-bottom: var(--space-md);
 }
 
+h1 {
+  font-size: 3rem;
+  margin-bottom: var(--space-lg);
+}
+
 p {
   margin-bottom: var(--space-md);
 }
@@ -90,24 +98,37 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85));
   z-index: 1000;
-  padding: var(--space-md) 0;
   transition: background-color 0.3s ease;
+  height: var(--navbar-height);
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo span {
   font-family: var(--heading-font);
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--light);
   letter-spacing: 1px;
+  cursor: default;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
 }
 
 .nav-links {
@@ -141,4 +162,55 @@ section {
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/cristiano-ronaldo-hero.jpg") center/cover no-repeat;
+  height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--light);
+  margin-top: 60px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  letter-spacing: 2px;
+  animation: fadeInDown 1s ease;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xl);
+  font-weight: 400;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease 0.3s forwards;
+  opacity: 0;
+}
+/* keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

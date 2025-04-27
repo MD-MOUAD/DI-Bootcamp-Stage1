@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Task 1: Print out all the values in the list one by one.
 lst1 = [1, 2, 3, 4]
 for value in lst1:
